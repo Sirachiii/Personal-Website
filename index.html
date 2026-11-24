@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sirachiii</title>
+<meta name="description" content="Complex Systems designed around understanding instead of abstraction. Videos, projects and notes from Sirachiii.">
+<meta name="theme-color" content="#1C1C1E">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔹</text></svg>">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400..600&family=Plus+Jakarta+Sans:wght@400..600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1C1C1E;--fg:#F5F5F5;--mut:#A3A3AB;--blue:#3468CE;--cyan:#00AAFF;--rule:rgba(245,245,245,.14);--pad:clamp(1.25rem,3vw,2.5rem);--disp:"Jost","Futura","Century Gothic",sans-serif;--body:"Satoshi","Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--bg);scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.05rem/1.7 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:var(--cyan)}
+::selection{background:var(--blue);color:var(--fg)}
+html{scrollbar-color:#3A3A3F var(--bg)}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem 2rem;padding:1rem var(--pad);background:var(--bg);border-bottom:1px solid var(--rule)}
+.logo{display:block;width:3rem;height:auto;color:var(--fg)}
+.top ul{display:flex;flex-wrap:wrap;gap:.25rem clamp(1rem,2.4vw,2rem);list-style:none;margin:0;padding:0;font:500 .95rem var(--disp)}
+.top li a{display:inline-block;padding:.2rem 0;color:var(--mut);text-decoration:none;background:linear-gradient(var(--cyan),var(--cyan)) no-repeat 0 100%/0 2px;transition:color .25s,background-size .35s cubic-bezier(.2,.8,.2,1)}
+.top li a:hover,.top li a[aria-current]{color:var(--fg)}
+.top li a:hover,.top li a[aria-current]{background-size:100% 2px}
+.page>*{padding-left:var(--pad);padding-right:var(--pad)}
+.page[hidden]{display:none}
+.hero{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:calc(100svh - 4.5rem);padding-top:3rem;padding-bottom:clamp(2rem,5vw,4rem);overflow:hidden}
+.net{position:absolute;inset:0;width:100%;height:100%;padding:0;pointer-events:none;-webkit-mask-image:linear-gradient(#000 30%,rgba(0,0,0,.25));mask-image:linear-gradient(#000 30%,rgba(0,0,0,.25))}
+.net path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s cubic-bezier(.6,0,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
+.net .p{stroke-dasharray:.05 1;stroke-dashoffset:.05;animation:pulse 4s linear infinite;animation-delay:calc(2.2s + var(--i) * 450ms)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pulse{to{stroke-dashoffset:-1}}
+.hero h1,.hero .sub{position:relative}
+.hero h1,.pg-head h1{margin:0;font-family:var(--disp);font-weight:500;letter-spacing:-.035em;text-wrap:balance}
+.hero h1{max-width:15em;font-size:clamp(2.4rem,7vw,6.4rem);line-height:1}
+.hero .sub{margin:1.5rem 0 0;max-width:34ch;color:var(--mut);font-size:1.15rem;line-height:1.5;opacity:0;animation:fade .9s ease 1.3s forwards}
+@keyframes fade{to{opacity:1}}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.06em 0 .14em;margin:-.06em 0 -.14em}
+.w>span{display:inline-block;transform:translateY(115%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.3s + var(--k) * 70ms)}
+@keyframes up{to{transform:none}}
+.pg-head{padding-top:clamp(3rem,8vw,7rem);padding-bottom:clamp(2rem,5vw,4rem)}
+.pg-head h1{font-size:clamp(2.8rem,9vw,7rem);line-height:1}
+.pg-head p,.lede{max-width:44ch;margin:1.25rem 0 0;color:var(--mut)}
+.blk{padding-top:clamp(2rem,5vw,4rem);padding-bottom:clamp(2rem,5vw,4rem)}
+.blk p{max-width:58ch;margin:0 0 1rem}
+.lab{margin:0 0 1.25rem;color:var(--mut);font-size:.95rem}
+.rows{padding-bottom:clamp(2rem,5vw,4rem)}
+.row{display:grid;grid-template-columns:1fr auto;gap:.2rem 2rem;align-items:baseline;margin:0 -1rem;padding:1.4rem 1rem;border-bottom:1px solid var(--rule);color:inherit;text-decoration:none;background:linear-gradient(var(--blue),var(--blue)) no-repeat 0 100%/0% 100%;transition:background-size .45s cubic-bezier(.2,.8,.2,1),color .3s}
+.row:first-child{border-top:1px solid var(--rule)}
+.row b{font:500 clamp(1.3rem,2.4vw,1.9rem)/1.2 var(--disp);letter-spacing:-.015em;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.row span{grid-column:1;color:var(--mut)}
+.row i{grid-column:2;grid-row:1 / span 2;align-self:center;font:500 .95rem var(--disp);font-style:normal;color:var(--cyan)}
+.row:hover,.row:focus-visible{background-size:100% 100%}
+.row:hover span,.row:hover i,.row:focus-visible span,.row:focus-visible i{color:var(--fg)}
+.row:hover b,.row:focus-visible b{transform:translateX(.6rem)}
+.now{display:grid;grid-template-columns:auto 1fr;gap:1rem 2.5rem;align-items:baseline;margin:0}
+.now dt{color:var(--mut)}
+.now dd{margin:0;font:500 clamp(1.4rem,3vw,2.4rem)/1.15 var(--disp);letter-spacing:-.02em}
+.proj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:end}
+.status{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1rem;color:var(--mut)}
+.status::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:var(--cyan)}
+.proj h2{margin:0 0 .75rem;font:500 clamp(1.9rem,3.8vw,3rem)/1.05 var(--disp);letter-spacing:-.03em}
+.steps{display:flex;align-items:flex-end;gap:4px;height:clamp(160px,22vw,260px);padding:0}
+.steps button{flex:1;height:var(--h);padding:0;border:0;border-radius:2px 2px 0 0;background:var(--blue);cursor:pointer;transform-origin:bottom;transition:background-color .2s;animation:grow .9s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i) * 45ms)}
+.steps button:hover,.steps button:focus-visible{background:var(--cyan)}
+@keyframes grow{from{transform:scaleY(0)}}
+.cap{min-height:3em;margin:.75rem 0 0;font:500 1rem/1.4 var(--disp)}
+.insp{position:relative}
+.glyph{position:absolute;right:var(--pad);top:-.2em;font:500 clamp(6rem,17vw,13rem)/1 var(--disp);color:var(--blue);opacity:.2;pointer-events:none;user-select:none}
+.insp h2{position:relative;margin:0 0 1rem;font:500 clamp(1.6rem,3vw,2.4rem)/1.1 var(--disp);letter-spacing:-.025em}
+.big{font-size:clamp(1.2rem,2.2vw,1.6rem);line-height:1.5}
+.page[data-page="about"]{position:relative;min-height:calc(100svh - 10rem);overflow:hidden}
+.page[data-page="about"]>:not(canvas){position:relative}
+.field{position:absolute;inset:0;width:100%;height:100%;padding:0;pointer-events:none}
+.page>:not(.rows):not(.hero),.page .row{animation:rise .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--s,0) * 70ms)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.next{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:2rem;padding:2rem var(--pad);border-top:1px solid var(--rule);color:var(--fg);text-decoration:none}
+.next[hidden]{display:none}
+.next span{color:var(--mut)}
+.next b{font:500 clamp(1.8rem,5vw,3.5rem)/1 var(--disp);letter-spacing:-.03em;transition:transform .4s cubic-bezier(.2,.8,.2,1),color .3s}
+.next:hover b,.next:focus-visible b{transform:translateX(.75rem);color:var(--cyan)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem 2rem;padding:2rem var(--pad);border-top:1px solid var(--rule);color:var(--mut);font-size:.95rem}
+@media (max-width:760px){.proj{grid-template-columns:1fr}.row{grid-template-columns:1fr}.row i{grid-column:1;grid-row:auto;margin-top:.5rem}.now{grid-template-columns:1fr;gap:.25rem}.now dd{margin-bottom:1rem}.glyph{opacity:.12}}
+@media (prefers-reduced-motion:reduce){.net path,.w>span,.hero .sub,.steps button,.page>*,.page .row{animation:none!important}.net path{stroke-dashoffset:0}.net .p{display:none}.w>span{transform:none}.hero .sub{opacity:1}.row,.row b,.next b{transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 73 31"><path d="M0.24605 8.80326C0.185614 3.68362 4.3833 0.0738211 10.5429 0.00110951C16.4625 -0.0687692 20.2609 3.16662 20.4832 8.44436L15.3636 8.5048C15.2138 5.98639 13.3965 4.52774 10.5167 4.56173C7.35692 4.59903 5.335 6.14301 5.3638 8.58284C5.38836 10.6627 6.52197 11.8094 8.96841 12.3406L13.5799 13.2862C18.5923 14.3071 21.0623 16.8381 21.1138 21.1978C21.178 26.6374 16.9799 30.2072 10.5403 30.2832C4.30075 30.3569 0.181844 27.0853 0 21.8471L5.11964 21.7866C5.18891 24.266 7.20624 25.7223 10.486 25.6836C13.8858 25.6434 16.0282 24.138 15.9994 21.6982C15.9762 19.7383 14.9626 18.5902 12.5566 18.0986L7.90468 17.1134C2.93227 16.0921 0.298931 13.283 0.24605 8.80326Z" fill="currentColor"/><path d="M26.7746 29.9493L21.935 30.0064L32.9895 0.673912L37.8692 0.61631L26.7746 29.9493Z" fill="currentColor"/><path d="M42.7579 0.5586L54.5018 29.622L49.6621 29.6791L37.8782 0.616203L42.7579 0.5586Z" fill="currentColor"/><path d="M52.47 0.691852L64.2139 29.7553L59.3742 29.8124L47.5903 0.749455L52.47 0.691852Z" fill="currentColor"/><path d="M69.2282 30.1761C67.4683 30.1969 65.9715 28.7744 65.9512 27.0546C65.9304 25.2947 67.3933 23.8373 69.1532 23.8165C70.913 23.7958 72.4099 25.2182 72.4307 26.9781C72.451 28.6979 70.9881 30.1553 69.2282 30.1761Z" fill="currentColor"/></symbol></svg>
+
+<header class="top">
+  <a href="#home" aria-label="Sirachiii, home"><svg class="logo" viewBox="0 0 73 31" role="img" aria-label="Sirachiii"><use href="#logo"/></svg></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="#videos" data-nav>Videos</a></li>
+    <li><a href="#projects" data-nav>Projects</a></li>
+    <li><a href="#inspirations" data-nav>Inspirations</a></li>
+    <li><a href="#wiki" data-nav>Wiki</a></li>
+    <li><a href="#about" data-nav>About</a></li>
+  </ul></nav>
+</header>
+
+<main>
+<div class="page" data-page="home">
+  <section class="hero">
+    <svg class="net" aria-hidden="true"></svg>
+    <h1>Complex Systems designed around understanding instead of abstraction.</h1>
+    <p class="sub">Videos, projects and notes from Sirachiii.</p>
+  </section>
+  <section class="blk">
+    <p class="lab">(Now)</p>
+    <dl class="now"><dt>Playing</dt><dd>GregTech: New Horizons</dd><dt>Building</dt><dd>Hycean Industries</dd></dl>
+    <p class="lab" style="margin:1.5rem 0 0">(Updated November 2026)</p>
+  </section>
+  <div class="blk"><p class="lab">(Index)</p></div>
+  <div class="rows">
+    <a class="row" href="#videos"><b>Videos</b><span>Walkthroughs and build logs, unlisted on YouTube.</span><i>Open</i></a>
+    <a class="row" href="#projects"><b>Projects</b><span>What I’m building right now.</span><i>Open</i></a>
+    <a class="row" href="#inspirations"><b>Inspirations</b><span>Things that shaped how I build.</span><i>Open</i></a>
+    <a class="row" href="#wiki"><b>Wiki</b><span>My lucid dreaming reference.</span><i>Open</i></a>
+    <a class="row" href="#about"><b>About</b><span>Who I am.</span><i>Open</i></a>
+  </div>
+</div>
+
+<div class="page" data-page="videos" hidden>
+  <header class="pg-head"><h1>Videos</h1><p>Unlisted on YouTube, so this page is the only way in.</p></header>
+  <div class="rows">
+    <!-- Replace each href with an unlisted YouTube link -->
+    <a class="row" href="https://www.youtube.com/" target="_blank" rel="noopener"><b>Building Hycean Industries</b><span>How a GregTech factory becomes a node graph.</span><i>Watch</i></a>
+    <a class="row" href="https://www.youtube.com/" target="_blank" rel="noopener"><b>GregTech: New Horizons, steam to LV</b><span>A playthrough, explained as I go.</span><i>Watch</i></a>
+    <a class="row" href="https://www.youtube.com/" target="_blank" rel="noopener"><b>Inside my lucid dreaming wiki</b><span>How it’s organised and why.</span><i>Watch</i></a>
+    <a class="row" href="https://www.youtube.com/" target="_blank" rel="noopener"><b>Designing for understanding</b><span>Why I keep the machinery visible.</span><i>Watch</i></a>
+  </div>
+</div>
+
+<div class="page" data-page="projects" hidden>
+  <header class="pg-head"><h1>Projects</h1><p>What I’m building right now.</p></header>
+  <section class="blk proj">
+    <div>
+      <span class="status">In progress</span>
+      <h2>Hycean Industries</h2>
+      <p>A GregTech-style factory game played entirely in a node editor. Drop machines onto the canvas, wire them together, and climb fifteen voltage tiers from NV to MAX, from your first ore miner to an ME network that crafts for you.</p>
+      <p>Built with React, TypeScript and React Flow.</p>
+    </div>
+    <div>
+      <div class="steps" role="group" aria-label="Voltage tiers, NV to MAX"></div>
+      <p class="cap" aria-live="polite">Each tier carries four times the power of the last.</p>
+    </div>
+  </section>
+</div>
+
+<div class="page" data-page="inspirations" hidden>
+  <header class="pg-head"><h1>Inspirations</h1><p>Things that shaped how I build.</p></header>
+  <section class="blk insp">
+    <span class="glyph" aria-hidden="true" lang="zh">明快</span>
+    <h2>The MingKwai typewriter</h2>
+    <p class="big">In the 1940s Lin Yutang built a Chinese typewriter with seventy-two keys. You press two keys to describe the top and bottom of a character, and a small window called the magic eye shows the candidates so you can pick one.</p>
+    <p>It never pretended Chinese was simple. It broke a huge system into steps you can see and follow, which is how I want everything I make to work.</p>
+  </section>
+</div>
+
+<div class="page" data-page="wiki" hidden>
+  <header class="pg-head"><h1>Wiki</h1><p>A reference I wrote on lucid dreaming.</p></header>
+  <div class="rows">
+    <!-- Replace href with the hosted wiki address -->
+    <a class="row" href="#wiki"><b>Lucid dreaming wiki</b><span>Opens the wiki once it has a home.</span><i>Open</i></a>
+  </div>
+</div>
+
+<div class="page" data-page="about" hidden>
+  <canvas class="field" aria-hidden="true"></canvas>
+  <header class="pg-head"><h1>About</h1></header>
+  <section class="blk">
+    <p class="big">I’m Sirachiii. I make videos and build projects about complex systems, and I don’t trust a thing until I know how each part works. This site is where it all lives.</p>
+    <p><a href="https://www.youtube.com/" target="_blank" rel="noopener">Find the videos on YouTube</a></p>
+  </section>
+</div>
+</main>
+
+<a class="next" href="#videos" hidden><span>Next</span><b></b></a>
+<footer class="foot">
+  <svg class="logo" viewBox="0 0 73 31" role="img" aria-label="Sirachiii"><use href="#logo"/></svg>
+  <span>© 2026 Sirachiii</span>
+  <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a>
+</footer>
+
+<script>
+(function(){
+var P=['home','videos','projects','inspirations','wiki','about'],T={videos:'Videos',projects:'Projects',inspirations:'Inspirations',wiki:'Wiki',about:'About'};
+var pages=document.querySelectorAll('.page'),links=document.querySelectorAll('[data-nav]'),nx=document.querySelector('.next'),hero=document.querySelector('.hero'),net=document.querySelector('.net'),G=56,lastW=0;
+
+pages.forEach(function(p){p.querySelectorAll(':scope>:not(.rows):not(.hero),.row').forEach(function(el,i){el.style.setProperty('--s',i)})});
+
+var h1=hero.querySelector('h1');
+h1.innerHTML=h1.textContent.trim().split(/\s+/).map(function(w,k){return '<span class="w"><span style="--k:'+k+'">'+w+'</span></span>'}).join(' ');
+
+function build(){
+  var w=hero.clientWidth,h=hero.clientHeight;
+  if(!w||w===lastW)return;lastW=w;
+  var seed=7,r=function(){seed=(seed*16807)%2147483647;return seed/2147483647};
+  var c=Math.ceil(w/G),rw=Math.ceil(h/G),o='';
+  o+='<defs><radialGradient id="g" gradientUnits="userSpaceOnUse" cx="'+w*.72+'" cy="'+h*.3+'" r="240"><stop offset="0" stop-color="#00AAFF"/><stop offset="1" stop-color="#F5F5F5" stop-opacity=".16"/></radialGradient></defs>';
+  for(var x=0;x<=c;x++)for(var y=0;y<=rw;y++)o+='<circle cx="'+x*G+'" cy="'+y*G+'" r="1.6" fill="url(#g)"/>';
+  for(var n=0;n<18;n++){
+    var px=Math.floor(r()*c),py=Math.floor(r()*rw),cx=px,cy=py,d='M'+px*G+' '+py*G,segs=2+Math.floor(r()*2);
+    for(var k=0;k<segs;k++){
+      if(k%2===0){cx=Math.max(0,Math.min(c,cx+(r()<.5?-1:1)*(2+Math.floor(r()*6))));d+=' H'+cx*G}
+      else{cy=Math.max(0,Math.min(rw,cy+(r()<.5?-1:1)*(2+Math.floor(r()*4))));d+=' V'+cy*G}
+    }
+    o+='<path d="'+d+'" pathLength="1" fill="none" stroke="url(#g)" stroke-width="1.5" stroke-linejoin="round" style="--i:'+n+'"/>';
+    if(n%2===0)o+='<path class="p" d="'+d+'" pathLength="1" fill="none" stroke="#00AAFF" stroke-width="2.5" stroke-linecap="round" style="--i:'+n+'"/>';
+    o+='<rect x="'+(px*G-4)+'" y="'+(py*G-4)+'" width="8" height="8" fill="url(#g)"/><rect x="'+(cx*G-4)+'" y="'+(cy*G-4)+'" width="8" height="8" fill="url(#g)"/>';
+  }
+  net.setAttribute('viewBox','0 0 '+w+' '+h);
+  net.innerHTML=o;
+}
+addEventListener('resize',build);
+hero.addEventListener('pointermove',function(e){
+  var g=net.querySelector('#g');if(!g)return;
+  var b=hero.getBoundingClientRect();
+  g.setAttribute('cx',e.clientX-b.left);g.setAttribute('cy',e.clientY-b.top);
+});
+
+var cv=document.querySelector('.field'),c2=cv.getContext('2d'),raf=0,ang=0,calm=matchMedia('(prefers-reduced-motion:reduce)').matches,ps=[];
+for(var q=0;q<80;q++)ps.push({x:(Math.random()-.5)*30,y:(Math.random()-.5)*40,z:8+Math.random()*30});
+function lz(p,dt){var dx=10*(p.y-p.x),dy=p.x*(28-p.z)-p.y,dz=p.x*p.y-8/3*p.z;p.x+=dx*dt;p.y+=dy*dt;p.z+=dz*dt}
+function geom(){var w=cv.clientWidth,h=cv.clientHeight;return{w:w,h:h,s:Math.max(Math.min(w/34,h/50),5),ox:w>700?w*.68:w*.5,oy:h*.5}}
+function pj(p,g,ca,sa){return[g.ox+(p.x*ca+p.y*sa)*g.s,g.oy+(25-p.z)*g.s]}
+function size(){var d=devicePixelRatio||1;cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;c2.setTransform(d,0,0,d,0,0);c2.fillStyle='#1C1C1E';c2.fillRect(0,0,cv.clientWidth,cv.clientHeight)}
+function frame(){
+  var g=geom();ang+=.002;var ca=Math.cos(ang),sa=Math.sin(ang);
+  c2.fillStyle='rgba(28,28,30,.07)';c2.fillRect(0,0,g.w,g.h);
+  c2.lineWidth=1.2;c2.strokeStyle='rgba(0,170,255,.55)';c2.beginPath();
+  ps.forEach(function(p){var a=pj(p,g,ca,sa);for(var k=0;k<3;k++)lz(p,.005);var b=pj(p,g,ca,sa);c2.moveTo(a[0],a[1]);c2.lineTo(b[0],b[1])});
+  c2.stroke();raf=requestAnimationFrame(frame);
+}
+function still(){
+  var g=geom(),ca=Math.cos(.6),sa=Math.sin(.6);
+  c2.strokeStyle='rgba(0,170,255,.18)';c2.lineWidth=1;c2.beginPath();
+  ps.forEach(function(p){for(var k=0;k<500;k++){var a=pj(p,g,ca,sa);lz(p,.005);var b=pj(p,g,ca,sa);c2.moveTo(a[0],a[1]);c2.lineTo(b[0],b[1])}});
+  c2.stroke();
+}
+function field(on){cancelAnimationFrame(raf);if(!on)return;size();if(calm)still();else raf=requestAnimationFrame(frame)}
+addEventListener('resize',function(){if(!cv.closest('.page').hidden){size();if(calm)still()}});
+
+function route(){
+  var id=location.hash.slice(1);if(P.indexOf(id)<0)id='home';
+  pages.forEach(function(p){p.hidden=p.dataset.page!==id});
+  links.forEach(function(a){if(a.getAttribute('href')==='#'+id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  document.title=id==='home'?'Sirachiii':T[id]+' · Sirachiii';
+  var n=P[(P.indexOf(id)+1)%P.length];
+  nx.hidden=id==='home';
+  nx.setAttribute('href','#'+n);
+  nx.querySelector('b').textContent=n==='home'?'Back to start':T[n];
+  if(id==='home')build();
+  field(id==='about');
+  scrollTo({top:0,behavior:'instant'});
+}
+addEventListener('hashchange',route);
+route();
+
+var TIERS=['NV','LV','MV','HV','EV','IV','LuV','ZPM','UV','UHV','UEV','UIV','UXV','OpV','MAX'];
+var st=document.querySelector('.steps'),cap=document.querySelector('.cap'),base=cap.textContent;
+TIERS.forEach(function(t,i){
+  var eu=(8*Math.pow(4,i)).toLocaleString('en-US'),b=document.createElement('button');
+  b.type='button';
+  b.style.setProperty('--h',(10+i*90/14)+'%');b.style.setProperty('--i',i);
+  b.setAttribute('aria-label',t+', '+eu+' EU per tick');
+  var show=function(){cap.textContent=t+' carries up to '+eu+' EU/t.'};
+  b.addEventListener('mouseenter',show);b.addEventListener('focus',show);b.addEventListener('click',show);
+  st.appendChild(b);
+});
+st.addEventListener('mouseleave',function(){cap.textContent=base});
+})();
+</script>
+</body>
+</html>
